@@ -1,0 +1,20 @@
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--primary-400);
+  border: 2px solid var(--primary-400);
+  border-radius: 12px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  color: white;
+  padding: 16px 32px;
+  cursor: pointer;
+  transition: 0.2s linear;
+}
+
+.btn:hover {
+  background-color: rgb(123, 110, 246, 0.5);
+}

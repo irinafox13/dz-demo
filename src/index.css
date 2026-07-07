@@ -1,0 +1,36 @@
+:root {
+  --gray-30: #8e95a9;
+  --gray-50: #ebeef5;
+  --gray-900: #121829;
+  --primary-400: #7b6ef6;
+  --ff: "Poppins", sans-serif;
+
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background-color: var(--gray-900);
+  margin: 0;
+  font-family: var(--ff);
+}
+
+#root {
+  width: 1126px;
+  max-width: 100%;
+  margin: 0 auto;
+  text-align: center;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+.box {
+  display: grid;
+  align-items: start;
+  justify-items: start;
+  gap: 16px;
+  padding: 24px;
+}

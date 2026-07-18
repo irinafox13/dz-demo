@@ -2,6 +2,7 @@ import Like from "./../../assets/images/svg/like.svg?react";
 import Star from "./../../assets/images/svg/star.svg?react";
 import Bookmark from "./../../assets/images/svg/bookmark.svg?react";
 import styles from "./FilmCard.module.css";
+import classNames from "classnames";
 
 function FilmCard({ card }) {
   const { name, image, rating, inFavorite } = card;
@@ -23,7 +24,7 @@ function FilmCard({ card }) {
       <div className={styles.info}>
         <h3 className={styles.name}>{name}</h3>
 
-        <div className={`styles.favorite ${inFavorite ? styles.favoriteActive : ""}`}>
+        <div className={classNames(styles.favorite, inFavorite && styles.favoriteActive)}>
           {inFavorite ? (
             <>
               <Bookmark />В избранном

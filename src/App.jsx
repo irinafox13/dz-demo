@@ -36,7 +36,7 @@ function App() {
       name: "The Big Bang Theory",
       image: poster7,
       rating: "12",
-      inFavorite: false,
+      inFavorite: true,
     },
     {
       id: 8,

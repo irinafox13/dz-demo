@@ -8,6 +8,8 @@
   --primary-400: #7b6ef6;
   --black-10: #0000001a;
   --white: #ffffff;
+  --warning-500: #FFAD49;
+  --success-400: #37D8A7;
   --ff: "Poppins", sans-serif;
 
   text-rendering: optimizeLegibility;

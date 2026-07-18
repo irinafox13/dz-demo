@@ -20,8 +20,7 @@ const Header = () => {
     <header className={styles.header}>
       <div className={"container" + " " + styles.headerWrapper}>
         <a className={styles.logoLink} href="/">
-          <img alt="Логотип" src="./public/logo.svg" />
-          {/* <Logo /> */}
+          <img alt="Логотип" src="/logo.svg" />
         </a>
         <Menu links={menuLinks} />
         <LoginButton isLogin={false} />

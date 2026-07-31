@@ -1,8 +1,8 @@
 import styles from "./Header.module.css";
 import Menu from "../../components/Menu/Menu";
-import LoginButton from "../../components/LoginButton/LoginButton"
+import LoginButton from "../../components/LoginButton/LoginButton";
 
-const Header = () => {
+const Header = ({ user, setUser }) => {
   const menuLinks = [
     {
       name: "Поиск фильмов",
@@ -23,7 +23,7 @@ const Header = () => {
           <img alt="Логотип" src="/logo.svg" />
         </a>
         <Menu links={menuLinks} />
-        <LoginButton isLogin={false} />
+        <LoginButton user={user} setUser={setUser} />
       </div>
     </header>
   );

@@ -6,10 +6,28 @@ import MainBody from "./layouts/MainBody/MainBody";
 import Paragraph from "./components/Paragraph/Paragraph";
 import Input from "./components/Input/Input";
 import FilmGrid from "./components/FilmGrid/FilmGrid";
-import { poster1, poster2, poster3, poster4, poster5, poster6, poster7, poster8 } from './assets/images/posters';
+import LoginForm from "./components/LoginForm/LoginForm";
+
+import { useLocalStorage } from "./hooks/use-local-storage";
+
+import {
+  poster1,
+  poster2,
+  poster3,
+  poster4,
+  poster5,
+  poster6,
+  poster7,
+  poster8,
+} from "./assets/images/posters";
 
 function App() {
   const [searchQuery, setSearchQuery] = useState("");
+  const [user, setUser] = useLocalStorage("user", {
+    name: "",
+    isLogined: false,
+  });
+
   const clickHandler = (e) => console.log(e);
   const onChangeSearchInput = (e) => setSearchQuery(e.target.value);
   const films = [
@@ -20,7 +38,13 @@ function App() {
       rating: "343",
       inFavorite: false,
     },
-    { id: 2, name: "Shang Chi", image: poster2, rating: "1", inFavorite: false },
+    {
+      id: 2,
+      name: "Shang Chi",
+      image: poster2,
+      rating: "1",
+      inFavorite: false,
+    },
     { id: 3, name: "Loki", image: poster3, rating: "8974", inFavorite: false },
     {
       id: 4,
@@ -29,8 +53,20 @@ function App() {
       rating: "45",
       inFavorite: false,
     },
-    { id: 5, name: "Money Heist", image: poster5, rating: "98", inFavorite: false },
-    { id: 6, name: "Friends", image: poster6, rating: "541", inFavorite: false },
+    {
+      id: 5,
+      name: "Money Heist",
+      image: poster5,
+      rating: "98",
+      inFavorite: false,
+    },
+    {
+      id: 6,
+      name: "Friends",
+      image: poster6,
+      rating: "541",
+      inFavorite: false,
+    },
     {
       id: 7,
       name: "The Big Bang Theory",
@@ -49,7 +85,7 @@ function App() {
 
   return (
     <>
-      <Header />
+      <Header user={user} setUser={setUser} />
       <MainBody>
         <Headline title={"Поиск"} />
         <Paragraph
@@ -74,6 +110,8 @@ function App() {
           <Button onClick={clickHandler}>Искать</Button>
         </div>
         <FilmGrid films={films} />
+        <br></br>
+        <LoginForm user={user} setUser={setUser} />
       </MainBody>
     </>
   );

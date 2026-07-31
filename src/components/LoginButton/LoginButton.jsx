@@ -1,6 +1,6 @@
 import styles from "./LoginButton.module.css";
 
-const LoginButton = ({ isLogin, userName = "Гость" }) => {
+const LoginButton = ({ user, setUser }) => {
   const loginSvg = (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -30,6 +30,7 @@ const LoginButton = ({ isLogin, userName = "Гость" }) => {
       />
     </svg>
   );
+
   const userSvg = (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -49,12 +50,25 @@ const LoginButton = ({ isLogin, userName = "Гость" }) => {
       />
     </svg>
   );
+
   return (
     <>
-      {isLogin ? (
-        <button className={styles.btn}>
-          {userName} {userSvg}
-        </button>
+      {user.isLogined ? (
+        <>
+          <button className={styles.btn}>
+            {user.name} {userSvg}
+          </button>
+          <button
+            className={styles.btn}
+            onClick={() =>
+              setUser((prev) => {
+                return { ...prev, isLogined: false };
+              })
+            }
+          >
+            Выйти
+          </button>
+        </>
       ) : (
         <button className={styles.btn}>
           Войти

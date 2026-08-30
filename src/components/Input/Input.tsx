@@ -1,7 +1,8 @@
 import { forwardRef } from "react";
 import styles from "./Input.module.css";
+import type {InputProps} from "./Input.props"
 
-const Input = forwardRef(
+const Input = forwardRef<HTMLInputElement, InputProps>(
   (
     { onChange, icon = "", value = "", placeholder = "Введите значение" },
     ref,

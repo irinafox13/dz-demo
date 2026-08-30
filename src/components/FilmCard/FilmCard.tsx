@@ -3,8 +3,9 @@ import Star from "./../../assets/images/svg/star.svg?react";
 import Bookmark from "./../../assets/images/svg/bookmark.svg?react";
 import styles from "./FilmCard.module.css";
 import classNames from "classnames";
+import type { FilmCardProps } from "./FilmCard.props";
 
-function FilmCard({ card }) {
+function FilmCard({ card }: FilmCardProps) {
   const { name, image, rating, inFavorite } = card;
   return (
     <article className={styles.card}>

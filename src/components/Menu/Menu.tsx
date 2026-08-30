@@ -1,6 +1,6 @@
 import styles from "./Menu.module.css";
-
-const Menu = ({ links }) => {
+import type { MenuProps} from "./Menu.props"
+const Menu = ({ links }: MenuProps) => {
   return (
     <ul className={styles.menu}>
       {links.map((link, index) => (

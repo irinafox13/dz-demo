@@ -65,9 +65,7 @@ const LoginButton = () => {
           <button
             className={styles.btn}
             onClick={() => {
-              setUser((prev) => {
-                return { ...prev, isLogined: false}
-              })
+              setUser({ name: "", isLogined: false})
             }}
           >
             Выйти

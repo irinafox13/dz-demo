@@ -6,10 +6,10 @@ import { UserContext } from '../../context/user.context';
 import { useContext } from 'react';
 
 const LoginForm = () => {  
-  const { userName, setUserName, isLogined, setIsLogined } = useContext(UserContext);
-  const [name, setName] = useState(userName);
+  const { user, setUser } = useContext(UserContext);
+  const [name, setName] = useState(user.name);
 
-  if (isLogined) return;
+  if (user.isLogined) return;
   return (
     <>
       <Headline title={"Вход"} />
@@ -29,8 +29,10 @@ const LoginForm = () => {
         />
         <Button
           onClick={() => {
-            setIsLogined(true);
-            setUserName(name);
+            setUser({
+              name, 
+              isLogined: true
+            })
           }}
         >
           Войти в профиль

@@ -1,4 +1,4 @@
-import { createContext, useEffect, useState } from 'react';
+import { createContext } from 'react';
 import { useLocalStorage } from "../hooks/use-local-storage";
 
 export const UserContext = createContext({
@@ -11,18 +11,8 @@ export const UserContextProvider = ({ children }) => {
     name: "",
     isLogined: false,
   });
-	
-	const [userName, setUserName] = useState(user.name);
-	const [isLogined, setIsLogined] = useState(user.isLogined);
 
-	useEffect(() => {
-		setUser({
-				name: userName,
-    		isLogined: isLogined, 
-			})
-	}, [userName, isLogined])
-
-	return <UserContext.Provider value={{ userName, setUserName, isLogined, setIsLogined }}>
+	return <UserContext.Provider value={{ user, setUser }}>
 		{children}
 	</UserContext.Provider>;
 };

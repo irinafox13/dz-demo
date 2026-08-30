@@ -7,8 +7,7 @@ import Paragraph from "./components/Paragraph/Paragraph";
 import Input from "./components/Input/Input";
 import FilmGrid from "./components/FilmGrid/FilmGrid";
 import LoginForm from "./components/LoginForm/LoginForm";
-
-import { useLocalStorage } from "./hooks/use-local-storage";
+import { UserContextProvider } from './context/user.context';
 
 import {
   poster1,
@@ -23,11 +22,7 @@ import {
 
 function App() {
   const [searchQuery, setSearchQuery] = useState("");
-  const [user, setUser] = useLocalStorage("user", {
-    name: "",
-    isLogined: false,
-  });
-
+ 
   const clickHandler = (e) => console.log(e);
   const onChangeSearchInput = (e) => setSearchQuery(e.target.value);
   const films = [
@@ -84,8 +79,8 @@ function App() {
   ];
 
   return (
-    <>
-      <Header user={user} setUser={setUser} />
+    <UserContextProvider>
+      <Header />
       <MainBody>
         <Headline title={"Поиск"} />
         <Paragraph
@@ -111,9 +106,9 @@ function App() {
         </div>
         <FilmGrid films={films} />
         <br></br>
-        <LoginForm user={user} setUser={setUser} />
+        <LoginForm />
       </MainBody>
-    </>
+    </UserContextProvider>
   );
 }
 

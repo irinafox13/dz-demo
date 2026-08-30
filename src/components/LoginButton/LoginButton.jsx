@@ -1,6 +1,14 @@
+import { useContext } from 'react';
 import styles from "./LoginButton.module.css";
+import { UserContext } from '../../context/user.context';
 
-const LoginButton = ({ user, setUser }) => {
+const LoginButton = () => {
+  const { userName, isLogined, setIsLogined } = useContext(UserContext);
+
+	const changeUser = (e) => {
+		setUserId(Number(e.target.value));
+	};
+
   const loginSvg = (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -53,18 +61,16 @@ const LoginButton = ({ user, setUser }) => {
 
   return (
     <>
-      {user.isLogined ? (
+      {isLogined ? (
         <>
           <button className={styles.btn}>
-            {user.name} {userSvg}
+            {userName} {userSvg}
           </button>
           <button
             className={styles.btn}
-            onClick={() =>
-              setUser((prev) => {
-                return { ...prev, isLogined: false };
-              })
-            }
+            onClick={() => {
+              setIsLogined(false)
+            }}
           >
             Выйти
           </button>

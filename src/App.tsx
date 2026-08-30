@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, type SetStateAction } from "react";
 import Button from "./components/Button/Button";
 import Headline from "./components/Headline/Headline";
 import Header from "./layouts/Header/Header";
@@ -18,13 +18,13 @@ import {
   poster6,
   poster7,
   poster8,
-} from "./assets/images/posters";
+} from "./assets/images/posters/index";
 
 function App() {
   const [searchQuery, setSearchQuery] = useState("");
  
-  const clickHandler = (e) => console.log(e);
-  const onChangeSearchInput = (e) => setSearchQuery(e.target.value);
+  const clickHandler = (e: any) => console.log(e);
+  const onChangeSearchInput = (e: { target: { value: SetStateAction<string>; }; }) => setSearchQuery(e.target.value);
   const films = [
     {
       id: 1,

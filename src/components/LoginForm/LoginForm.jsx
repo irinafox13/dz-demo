@@ -2,9 +2,12 @@ import { useState } from "react";
 import Headline from "../Headline/Headline";
 import Input from "../Input/Input";
 import Button from "../Button/Button";
+import { UserContext } from '../../context/user.context';
+import { useContext } from 'react';
 
-const LoginForm = ({ user, setUser }) => {
-  const [userName, setUserName] = useState("");
+const LoginForm = () => {  
+  const { user, setUser } = useContext(UserContext);
+  const [name, setName] = useState(user.name);
 
   if (user.isLogined) return;
   return (
@@ -21,13 +24,15 @@ const LoginForm = ({ user, setUser }) => {
       >
         <Input
           placeholder={"Введите имя"}
-          value={userName}
-          onChange={(e) => setUserName(e.target.value)}
+          value={name}
+          onChange={(e) => setName(e.target.value)}
         />
         <Button
           onClick={() => {
-            setUser({ name: userName, isLogined: true });
-            setUserName("");
+            setUser({
+              name, 
+              isLogined: true
+            })
           }}
         >
           Войти в профиль

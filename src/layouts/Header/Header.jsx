@@ -2,7 +2,7 @@ import styles from "./Header.module.css";
 import Menu from "../../components/Menu/Menu";
 import LoginButton from "../../components/LoginButton/LoginButton";
 
-const Header = ({ user, setUser }) => {
+const Header = () => {
   const menuLinks = [
     {
       name: "Поиск фильмов",
@@ -23,7 +23,7 @@ const Header = ({ user, setUser }) => {
           <img alt="Логотип" src="/logo.svg" />
         </a>
         <Menu links={menuLinks} />
-        <LoginButton user={user} setUser={setUser} />
+        <LoginButton />
       </div>
     </header>
   );

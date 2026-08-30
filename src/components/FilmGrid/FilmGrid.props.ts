@@ -1,4 +1,4 @@
-export interface FilmCardProps  {
+export interface FilmGridProps  {
   films: {
     id: number,
     name: string,

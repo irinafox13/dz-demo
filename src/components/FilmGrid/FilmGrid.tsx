@@ -1,8 +1,8 @@
 import FilmCard from "../FilmCard/FilmCard";
 import styles from "./FilmGrid.module.css";
-import type {FilmCardProps} from "./FilmGrid.props";
+import type {FilmGridProps} from "./FilmGrid.props";
 
-function FilmGrid({ films }: FilmCardProps) {
+function FilmGrid({ films }: FilmGridProps) {
   return (
     <div className={styles.grid}>
       {[...films]?.map((film) => (
